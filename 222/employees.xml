@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<employees>
+  <employee>
+    <name>sasha2</name>
+    <surname>крутой</surname>
+    <about>Хороший человек просто пушка</about>
+    <image>\images\4aa16dac1e70df79806a7f90281864ea.jpg</image>
+    <birthDate>2018-11-29T00:00:00</birthDate>
+  </employee>
+  <employee>
+    <name>sasha2</name>
+    <surname>крутой</surname>
+    <about>Хороший человек просто пушка</about>
+    <image>\images\4aa16dac1e70df79806a7f90281864ea.jpg</image>
+    <birthDate>2018-11-29T00:00:00</birthDate>
+  </employee>
+  <employee>
+    <name>sasha2</name>
+    <surname>крутой</surname>
+    <about>Хороший человек просто пушка</about>
+    <image>\images\4aa16dac1e70df79806a7f90281864ea.jpg</image>
+    <birthDate>2018-11-29T00:00:00</birthDate>
+  </employee>
+</employees>

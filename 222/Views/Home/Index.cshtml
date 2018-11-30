@@ -1,0 +1,139 @@
+﻿@model IEnumerable<_222.EF.Employee>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="addModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add new employee</h4>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Create" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label class="control-label">Name</label>
+                        <input type="text" name="Name" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Surname</label>
+                        <input type="text" name="Surname" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">About</label>
+                        <input type="text" name="About" class="form-control" />
+                    </div>                   
+                    <div class="form-group">
+                        <label class="control-label">Photo</label>
+                        <input name="Image" type="file" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">BirthDate</label>
+                        <input type="date" name="BirthDate" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-success" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="editModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Employee edit</h4>
+            </div>
+            <div class="modal-body">
+                <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                    <input id="editId" type="hidden" name="Id" />
+                    <div class="form-group">
+                        <label class="control-label">Name</label>
+                        <input id="editName" type="text" name="Name" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Surname</label>
+                        <input id="editSurname" type="text" name="Surname" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">About</label>
+                        <input id="editAbout" type="text" name="About" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Photo</label>
+                        <input name="Image" type="file" class="form-control" />
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="submit" value="Edit" class="btn btn-success" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row my_header">
+    <h2>
+        Employees list
+    </h2>
+        <button data-toggle="modal" data-target="#addModal" class="btn-success btn-add">Add new</button>
+        <form asp-action="ParseToXml" method="post">
+            <button type="submit" class="btn-success btn-add">To xml</button>
+        </form>
+  
+</div>
+<div>
+    <form asp-action="ParseXML" enctype="multipart/form-data" method="post">
+        <div class="form-group">
+            <input name="doc" type="file" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Add" class="btn btn-default" />
+        </div>
+    </form>
+</div>
+<div>
+    <form asp-action="Index" enctype="multipart/form-data" method="post">
+        <div class="form-group">
+            <input name="name" type="text" placeholder="Search by name:" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Search" class="btn btn-default" />
+        </div>
+    </form>
+    <form asp-action="Index" enctype="multipart/form-data" method="post">
+        <div class="form-group">
+            <input type="submit" value="Back to full list" class="btn btn-default" />
+        </div>
+    </form>
+    <form asp-action="Index" enctype="multipart/form-data" method="post">
+        <select name="sort">
+            <option value="ASC">По возрастанию</option>
+            <option value="DESC">По убыванию</option>
+        </select>
+        <div class="form-group">
+            <input type="submit" value="Sort" class="btn btn-default" />
+        </div>
+    </form>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-center col-md-3">
+                Photo
+            </th>
+            <th class="text-center col-md-7">
+                Info
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var b in Model)
+        {
+            <partial name="_EmployeeRow" model="@b" />
+        }
+    </tbody>
+</table>

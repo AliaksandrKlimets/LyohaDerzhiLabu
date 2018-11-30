@@ -1,0 +1,23 @@
+﻿@model _222.EF.Employee
+
+<tr>
+    <td class=" col-md-2">
+        <img class="img-thumbnail" src="@Model.ImageLocation" />
+    </td>
+    <td class="col-md-7">
+        <span>Name: @Model.Name</span>
+        <br />
+        <br />
+        <span>Surname: @Model.Surname</span>
+        <br />
+        <br />
+        <span>Description: @Model.About</span>
+        <br />
+        <br />
+        <span>Birth date: @Model.BirthDate</span>
+        <br />
+        <br />
+        <button data-bookid="@Model.Id" data-toggle="modal" data-target="#editModal" class="btn btn-warning">Edit</button>
+        <a asp-action="Delete" asp-controller="Home" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
+    </td>
+</tr>
